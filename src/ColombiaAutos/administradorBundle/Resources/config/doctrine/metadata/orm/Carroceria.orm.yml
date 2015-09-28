@@ -1,0 +1,23 @@
+Carroceria:
+    type: entity
+    table: carroceria
+    id:
+        codCarroceria:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+            id: true
+            column: cod_carroceria
+            generator:
+                strategy: IDENTITY
+    fields:
+        tipoCarroceria:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: tipo_carroceria
+    lifecycleCallbacks: {  }

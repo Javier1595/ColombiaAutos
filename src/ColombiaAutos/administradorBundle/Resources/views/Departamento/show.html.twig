@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('departamento') }}">
+                Volver
+            </a>
+        </li>
+    <!--
+        <li>
+            <a href="{{ path('departamento_edit', { 'id': entity.codDepartamento }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>-->
+    </ul>
+    
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codigo del Departamento</th>
+                <td>{{ entity.codDepartamento }}</td>
+            </tr>
+            <tr>
+                <th>Nombre del Departamento</th>
+                <td>{{ entity.nombreDepartamento }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codigo ciudad</th>
+                <th>Nombre ciudad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ciu in entities %}
+            <tr>
+                <td><!--<a href="{{ path('departamento_show', { 'id': ciu.codCiudad }) }}">{{ ciu.codCiudad }}</a>-->{{ ciu.codCiudad }}</td>
+                <td>{{ ciu.nombreCiudad }}</td>
+                <td>
+                <!--
+                <ul>
+                    <li>
+                        <a href="{{ path('departamento_show', { 'id': entity.codDepartamento }) }}">Ver ciudades</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('departamento_edit', { 'id': entity.codDepartamento }) }}">edit</a>
+                    </li>
+                </ul>
+                -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

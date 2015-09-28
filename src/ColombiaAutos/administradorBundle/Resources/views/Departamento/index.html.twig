@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h1><b>Departamentos</b></h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><!--<a href="{{ path('departamento_show', { 'id': entity.codDepartamento }) }}">{{ entity.codDepartamento }}</a>-->{{ entity.codDepartamento }}</td>
+                <td>{{ entity.nombreDepartamento }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('departamento_show', { 'id': entity.codDepartamento }) }}">Ver ciudades</a>
+                    </li>
+                    <!--<li>
+                        <a href="{{ path('departamento_edit', { 'id': entity.codDepartamento }) }}">edit</a>
+                    </li>-->
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <!--
+    <ul>
+        <li>
+            <a href="{{ path('departamento_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    -->
+</div>
+{% endblock %}

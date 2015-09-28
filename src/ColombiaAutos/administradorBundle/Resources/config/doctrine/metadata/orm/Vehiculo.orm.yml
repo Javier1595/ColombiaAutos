@@ -1,0 +1,120 @@
+Vehiculo:
+    type: entity
+    table: vehiculo
+    indexes:
+        vehiculo_imp:
+            columns:
+                - cod_importacion
+        vehiculo_modelo:
+            columns:
+                - cod_modelo
+        vehiculo_carroceria:
+            columns:
+                - cod_carroceria
+        vehiculo_color:
+            columns:
+                - cod_color
+    id:
+        placa:
+            type: string
+            nullable: false
+            length: 7
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nroChasis:
+            type: string
+            nullable: false
+            length: 17
+            options:
+                fixed: false
+            column: nro_chasis
+        nroSerie:
+            type: string
+            nullable: false
+            length: 17
+            options:
+                fixed: false
+            column: nro_serie
+        capacidadPersonas:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            column: capacidad_personas
+        servicio:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+        puertas:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+    manyToOne:
+        codCarroceria:
+            targetEntity: Carroceria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_carroceria:
+                    referencedColumnName: cod_carroceria
+            orphanRemoval: false
+        codColor:
+            targetEntity: Color
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_color:
+                    referencedColumnName: cod_color
+            orphanRemoval: false
+        codImportacion:
+            targetEntity: Importacion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_importacion:
+                    referencedColumnName: cod_importacion
+            orphanRemoval: false
+        codModelo:
+            targetEntity: Linea
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_modelo:
+                    referencedColumnName: cod_modelo
+            orphanRemoval: false
+    manyToMany:
+        nroMotor:
+            targetEntity: Motor
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: placa
+            joinTable:
+                name: motor_vehiculo
+                joinColumns:
+                    -
+                        name: placa
+                        referencedColumnName: placa
+                inverseJoinColumns:
+                    -
+                        name: nro_motor
+                        referencedColumnName: nro_motor
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,45 @@
+Organismo:
+    type: entity
+    table: organismo
+    indexes:
+        ciudad_organismo:
+            columns:
+                - cod_ciudad
+    id:
+        codOrganismo:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+            id: true
+            column: cod_organismo
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreOrganismo:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: nombre_organismo
+        telefonoOrganismo:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: telefono_organismo
+    manyToOne:
+        codCiudad:
+            targetEntity: Ciudad
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_ciudad:
+                    referencedColumnName: cod_ciudad
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

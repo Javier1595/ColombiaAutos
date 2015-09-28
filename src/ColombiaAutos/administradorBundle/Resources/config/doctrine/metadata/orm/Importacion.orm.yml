@@ -1,0 +1,20 @@
+Importacion:
+    type: entity
+    table: importacion
+    id:
+        codImportacion:
+            type: string
+            nullable: false
+            length: 16
+            options:
+                fixed: false
+            id: true
+            column: cod_importacion
+            generator:
+                strategy: IDENTITY
+    fields:
+        fechaImportacion:
+            type: date
+            nullable: true
+            column: fecha_importacion
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+Color:
+    type: entity
+    table: color
+    id:
+        codColor:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            id: true
+            column: cod_color
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomColor:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: nom_color
+    lifecycleCallbacks: {  }

@@ -1,0 +1,43 @@
+Motor:
+    type: entity
+    table: motor
+    id:
+        nroMotor:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            id: true
+            column: nro_motor
+            generator:
+                strategy: IDENTITY
+    fields:
+        cilindraje:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+        combustible:
+            type: string
+            nullable: false
+            length: 6
+            options:
+                fixed: false
+        potencia:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+    manyToMany:
+        placa:
+            targetEntity: Vehiculo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: nroMotor
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

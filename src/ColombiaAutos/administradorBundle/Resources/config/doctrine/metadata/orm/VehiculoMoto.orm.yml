@@ -1,0 +1,24 @@
+VehiculoMoto:
+    type: entity
+    table: vehiculo_moto
+    id: {  }
+    fields:
+        nroRuedas:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+            column: nro_ruedas
+    oneToOne:
+        placa:
+            targetEntity: Vehiculo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                placa:
+                    referencedColumnName: placa
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+	<ul class="record_actions">
+		<li>
+			<a href="{{ path('propietario') }}">
+			    Volver
+			</a>
+		</li>
+	</ul>
+	<h1>Editar Propietario</h1>
+
+		{{ form(edit_form) }}
+
+</div>
+{% endblock %}

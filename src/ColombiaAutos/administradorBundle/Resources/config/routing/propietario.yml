@@ -1,0 +1,30 @@
+propietario:
+    path:     /ConsultarPropietario
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:index" }
+
+propietario_show:
+    path:     /{id}/show
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:show" }
+
+propietario_new:
+    path:     /new
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:new" }
+
+propietario_create:
+    path:     /create
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:create" }
+    methods:  POST
+
+propietario_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:edit" }
+
+propietario_update:
+    path:     /{id}/update
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:update" }
+    methods:  [POST, PUT]
+
+propietario_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:delete" }
+    methods:  [POST, DELETE]

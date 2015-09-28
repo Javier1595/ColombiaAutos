@@ -1,0 +1,23 @@
+VehiculoAutomovil:
+    type: entity
+    table: vehiculo_automovil
+    id: {  }
+    fields:
+        blindaje:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+    oneToOne:
+        placa:
+            targetEntity: Vehiculo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                placa:
+                    referencedColumnName: placa
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

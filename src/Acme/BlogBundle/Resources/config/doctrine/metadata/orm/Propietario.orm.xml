@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Propietario" table="propietario">
+    <id name="nroIdentificacion" type="string" column="nro_identificacion" length="12">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombresP" type="string" column="nombres_p" length="15" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="apellidosP" type="string" column="apellidos_p" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="nroLicencia" target-entity="TarjetaDePropiedad" mapped-by="nroentificacion" fetch="LAZY"/>
+  </entity>
+</doctrine-mapping>

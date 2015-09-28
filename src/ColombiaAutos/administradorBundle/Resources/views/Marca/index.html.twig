@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h1><b>Marcas</b></h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codigo marca</th>
+                <th>Nombre marca</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><!--<a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">{{ entity.codMarca }}</a>-->{{ entity.codMarca }}</td>
+                <td>{{ entity.nombreMarca }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">Ver lineas</a>
+                    </li>
+                    <!--<li>
+                        <a href="{{ path('marca_edit', { 'id': entity.codMarca }) }}">edit</a>
+                    </li>-->
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <!--
+    <ul>
+        <li>
+            <a href="{{ path('marca_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    -->
+</div>
+{% endblock %}

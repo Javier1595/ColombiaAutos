@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('propietario') }}">
+                Volver
+            </a>
+        </li>
+    </ul>
+    <h1>Propietario</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Nro de identificacion</th>
+                <td>{{ entity.nroIdentificacion }}</td>
+            </tr>
+            <tr>
+                <th>Nombres Propietario</th>
+                <td>{{ entity.nombresP }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos Propietario</th>
+                <td>{{ entity.apellidosP }}</td>
+            </tr>
+            <tr>
+                <th>Acciones</th>
+                <td><a href="{{ path('propietario_edit', { 'id': entity.nroIdentificacion }) }}">Editar propietario</a> {{ form(delete_form) }}
+                </td>
+            </tr>   
+        </tbody>
+    </table>
+</div>
+{% endblock %}

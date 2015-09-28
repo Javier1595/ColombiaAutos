@@ -1,0 +1,44 @@
+Linea:
+    type: entity
+    table: linea
+    indexes:
+        marca_linea:
+            columns:
+                - cod_marca
+    id:
+        codModelo:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            id: true
+            column: cod_modelo
+        anioModelo:
+            type: string
+            nullable: false
+            length: 4
+            options:
+                fixed: false
+            id: true
+            column: anio_modelo
+    fields:
+        nombreModelo:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: nombre_modelo
+    oneToOne:
+        codMarca:
+            targetEntity: Marca
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_marca:
+                    referencedColumnName: cod_marca
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

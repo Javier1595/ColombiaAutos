@@ -1,0 +1,30 @@
+departamento:
+    path:     /ConsultarDepartamentos
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:index" }
+
+departamento_show:
+    path:     /{id}/show
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:show" }
+
+departamento_new:
+    path:     /new
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:new" }
+
+departamento_create:
+    path:     /create
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:create" }
+    methods:  POST
+
+departamento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:edit" }
+
+departamento_update:
+    path:     /{id}/update
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:update" }
+    methods:  [POST, PUT]
+
+departamento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Departamento:delete" }
+    methods:  [POST, DELETE]

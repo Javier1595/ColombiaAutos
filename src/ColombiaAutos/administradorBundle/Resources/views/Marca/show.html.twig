@@ -1,0 +1,63 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('marca') }}">
+                Volver
+            </a>
+        </li>
+    <!--
+        <li>
+            <a href="{{ path('marca_edit', { 'id': entity.codMarca }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>-->
+    </ul>
+    
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Codigo del Marca</th>
+                <td>{{ entity.codMarca }}</td>
+            </tr>
+            <tr>
+                <th>Nombre del Marca</th>
+                <td>{{ entity.nombreMarca }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Codigo de la linea</th>
+                <th>Nombre de la linea</th>
+                <th>Año de la linea</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entities in entities %}
+            <tr>
+                <td><!--<a href="{{ path('marca_show', { 'id': entities.codModelo }) }}">{{ entities.codModelo }}</a>-->{{ entities.codModelo }}</td>
+                <td>{{ entities.nombreModelo }}</td>
+                <td>{{ entities.anioModelo }}</td>
+                <td>
+                <!--
+                <ul>
+                    <li>
+                        <a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">Ver ciudades</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('marca_edit', { 'id': entity.codMarca }) }}">edit</a>
+                    </li>
+                </ul>
+                -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

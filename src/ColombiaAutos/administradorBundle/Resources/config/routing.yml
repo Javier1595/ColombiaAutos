@@ -1,0 +1,19 @@
+colombia_autosadministrador_color:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/color.yml"
+    prefix:   /color
+
+colombia_autosadministrador_marca:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/marca.yml"
+    prefix:   /marca
+
+colombia_autosadministrador_propietario:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/propietario.yml"
+    prefix:   /propietario
+
+colombia_autosadministrador_departamento:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/departamento.yml"
+    prefix:   /departamento
+
+colombia_autosadministrador_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ColombiaAutosadministradorBundle:Default:index }

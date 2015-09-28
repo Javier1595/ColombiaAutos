@@ -1,0 +1,42 @@
+Propietario:
+    type: entity
+    table: propietario
+    id:
+        nroIdentificacion:
+            NotBlank: ~
+            type: string
+            nullable: false
+            length: 12
+            options:
+                fixed: false
+            id: true
+            column: nro_identificacion
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombresP:
+            NotBlank: ~
+            type: string
+            nullable: false
+            length: 15
+            options:
+                fixed: false
+            column: nombres_p
+        apellidosP:
+            NotBlank: ~
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: apellidos_p
+    manyToMany:
+        nroLicencia:
+            targetEntity: TarjetaDePropiedad
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: nroentificacion
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

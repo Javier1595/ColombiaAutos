@@ -1,0 +1,74 @@
+TarjetaDePropiedad:
+    type: entity
+    table: tarjeta_de_propiedad
+    indexes:
+        vehiculo_tarjeta_de_propiedad:
+            columns:
+                - placa
+        organismo_tarjeta_de_propiedad:
+            columns:
+                - cod_organismo
+    id:
+        nroLicencia:
+            type: string
+            nullable: false
+            length: 11
+            options:
+                fixed: false
+            id: true
+            column: nro_licencia
+            generator:
+                strategy: IDENTITY
+    fields:
+        fechaExpedicion:
+            type: date
+            nullable: false
+            column: fecha_expedicion
+        fechaMatricula:
+            type: date
+            nullable: false
+            column: fecha_matricula
+        fechaVencimiento:
+            type: date
+            nullable: true
+            column: fecha_vencimiento
+    manyToOne:
+        codOrganismo:
+            targetEntity: Organismo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_organismo:
+                    referencedColumnName: cod_organismo
+            orphanRemoval: false
+        placa:
+            targetEntity: Vehiculo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                placa:
+                    referencedColumnName: placa
+            orphanRemoval: false
+    manyToMany:
+        nroentificacion:
+            targetEntity: Propietario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: nroLicencia
+            joinTable:
+                name: tarjeta_propietario
+                joinColumns:
+                    -
+                        name: nro_licencia
+                        referencedColumnName: nro_licencia
+                inverseJoinColumns:
+                    -
+                        name: nro_identificacion
+                        referencedColumnName: nro_identificacion
+            orderBy: null
+    lifecycleCallbacks: {  }

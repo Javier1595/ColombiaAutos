@@ -1,0 +1,7 @@
+colombia_autosadministrador:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

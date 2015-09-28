@@ -1,0 +1,30 @@
+ColombiaAutosadministradorBundle\Entity\Departamento:
+    type: entity
+    table: departamento
+    id:
+        codDepartamento:
+            NotBlank: ~
+            type: string
+            nullable: false
+            length: 2
+            fixed: false
+            comment: ''
+            id: true
+            column: cod_departamento
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreDepartamento:
+            NotBlank: ~
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            column: nombre_departamento
+    oneToMany:
+        ciudades:
+            targetEntity: Ciudad
+            mappedBy: Departamento
+
+    lifecycleCallbacks: {  }

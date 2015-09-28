@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h1><b>Propietarios</b></h1>
+    <ul>
+        <li>
+            <a href="{{ path('propietario_new') }}">
+                Crear un nuevo propietario
+            </a>
+        </li>
+    </ul>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Identificacion Propietario</th>
+                <th>Nombre Propietario</th>
+                <th>Apellido Propietario</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><!--<a href="{{ path('propietario_show', { 'id': entity.nroIdentificacion }) }}">{{ entity.nroIdentificacion }}</a>-->{{ entity.nroIdentificacion }}</td>
+                <td>{{ entity.nombresP }}</td>
+                <td>{{ entity.apellidosP }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('propietario_edit', { 'id': entity.nroIdentificacion }) }}">Editar propietario</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

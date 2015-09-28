@@ -1,0 +1,30 @@
+VehiculoVehiculopesado:
+    type: entity
+    table: vehiculo_vehiculopesado
+    id: {  }
+    fields:
+        capacidad:
+            type: string
+            nullable: false
+            length: 6
+            options:
+                fixed: false
+        nroEjes:
+            type: string
+            nullable: false
+            length: 3
+            options:
+                fixed: false
+            column: nro_ejes
+    oneToOne:
+        placa:
+            targetEntity: Vehiculo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                placa:
+                    referencedColumnName: placa
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
