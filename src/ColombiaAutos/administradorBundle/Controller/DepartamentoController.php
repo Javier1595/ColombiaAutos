@@ -4,7 +4,7 @@ namespace ColombiaAutos\administradorBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use ColombiaAutos\administradorBundle\Entity\Departamento;
 use ColombiaAutos\administradorBundle\Entity\Ciudad;
 use ColombiaAutos\administradorBundle\Form\DepartamentoType;
@@ -101,10 +101,10 @@ class DepartamentoController extends Controller
         $entities = $em1->getRepository('ColombiaAutosadministradorBundle:Ciudad')->findBycod_departamento($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Departamento entity.');
+            //throw $this->createNotFoundException('Unable to find Departamento entity.');
         }
         if (!$entities) {
-            throw $this->createNotFoundException('Unable to find Ciudad entity.');
+            //throw $this->createNotFoundException('Unable to find Ciudad entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);

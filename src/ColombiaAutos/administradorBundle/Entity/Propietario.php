@@ -60,19 +60,6 @@ class Propietario
     {
         return $this->nroIdentificacion;
     }
-    /**
-     * Set NroIdentificacion
-     *
-     * @param string $NroIdentificacion
-     *
-     * @return Propietario
-     */
-    public function setNroIdentificacion($NroIdentificacion)
-    {
-        $this->NroIdentificacion = $NroIdentificacion;
-
-        return $this;
-    }
 
     /**
      * Set nombresP

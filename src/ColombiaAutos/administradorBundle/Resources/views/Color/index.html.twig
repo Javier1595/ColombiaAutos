@@ -3,21 +3,32 @@
 {% block body -%}
     <div class="container">
         <h1><b>Colores</b></h1>
-        
+        <!--{# total items count #}-->
+        <div class="count">
+            <b>Total colores: </b>{{ pagination.getTotalItemCount }}
+        </div>
         <table class="records_list">
             <thead>
+                <!--
                 <tr>
                     <th>Codigo color</th>
                     <th>Nombre color</th>
-                    <!--<th>Actions</th>-->
+                    <th>Actions</th>
+                </tr>
+                -->
+                <tr>
+                <!--{# sorting of properties based on query components #}-->
+                    <th>Codigo del color</th>
+                    <th>Nombre del color</th>
                 </tr>
             </thead>
             <tbody>
-            {% for entity in entities %}
+            {% for entity in pagination %}
+                <!--
                 <tr>
-                    <td><a href="{{ path('color_show', { 'id': entity.codColor }) }}">{{ entity.codColor }}</a></td>
+                    <td><a href="{{ path('color_show', { 'id': entity.codColor }) }}"></a>{{ entity.codColor }}</td>
                     <td>{{ entity.nomColor }}</td>
-                    <!--
+                    
                     <td>
                     <ul>
                         <li>
@@ -27,12 +38,21 @@
                             <a href="{{ path('color_edit', { 'id': entity.codColor }) }}">edit</a>
                         </li>
                     </ul>
-                    -->
+                    
                     </td>
+                </tr>
+                -->
+                <tr {% if loop.index is odd %}class="color"{% endif %}>
+                    <td>{{ entity.codColor }}</td>
+                    <td>{{ entity.nomColor }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
         <!--
         <ul>
             <li>

@@ -113,33 +113,4 @@ class Ciudad
     {
         return $this->codDepartamento;
     }
-    /**
-     * @ORM\ManyToOne(targetEntity="Departamento", inversedBy="Ciudad")
-     * @ORM\JoinColumn(name="CodDepartamento", referencedColumnName="cod_departamento")
-     */
-    protected $departamento;
-
-    /**
-     * Set departamento
-     *
-     * @param \ColombiaAutos\administradorBundle\Entity\Departamento $departamento
-     *
-     * @return Ciudad
-     */
-    public function setDepartamento(\ColombiaAutos\administradorBundle\Entity\Departamento $departamento = null)
-    {
-        $this->departamento = $departamento;
-
-        return $this;
-    }
-
-    /**
-     * Get departamento
-     *
-     * @return \ColombiaAutos\administradorBundle\Entity\Departamento
-     */
-    public function getDepartamento()
-    {
-        return $this->departamento;
-    }
 }

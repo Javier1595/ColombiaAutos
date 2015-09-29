@@ -29,38 +29,5 @@ class Carroceria
     private $tipoCarroceria;
 
 
-
-    /**
-     * Get codCarroceria
-     *
-     * @return string
-     */
-    public function getCodCarroceria()
-    {
-        return $this->codCarroceria;
-    }
-
-    /**
-     * Set tipoCarroceria
-     *
-     * @param string $tipoCarroceria
-     *
-     * @return Carroceria
-     */
-    public function setTipoCarroceria($tipoCarroceria)
-    {
-        $this->tipoCarroceria = $tipoCarroceria;
-
-        return $this;
-    }
-
-    /**
-     * Get tipoCarroceria
-     *
-     * @return string
-     */
-    public function getTipoCarroceria()
-    {
-        return $this->tipoCarroceria;
-    }
 }
+

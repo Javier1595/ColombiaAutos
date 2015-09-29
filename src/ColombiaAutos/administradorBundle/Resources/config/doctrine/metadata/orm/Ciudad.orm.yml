@@ -1,4 +1,5 @@
 ColombiaAutosadministradorBundle\Entity\Ciudad:
+Ciudad:
     type: entity
     table: ciudad
     indexes:
@@ -7,31 +8,27 @@ ColombiaAutosadministradorBundle\Entity\Ciudad:
                 - cod_departamento
     id:
         codCiudad:
-            NotBlank: ~
             type: string
             nullable: false
             length: 5
-            fixed: false
-            comment: ''
+            options:
+                fixed: false
             id: true
             column: cod_ciudad
     fields:
         nombreCiudad:
-            NotBlank: ~
             type: string
             nullable: false
             length: 25
-            fixed: false
-            comment: ''
+            options:
+                fixed: false
             column: nombre_ciudad
     manyToOne:
         departamento:
             targetEntity: Departamento
-            cascade: {  }
-            mappedBy: Ciudad
-            inversedBy: Ciudad
+            inversedBy: ciudades
             joinColumns:
-                cod_departamento:
-                    referencedColumnName: cod_departamento
+                name: cod_departamento
+                referencedColumnName: cod_departamento
             orphanRemoval: false
     lifecycleCallbacks: {  }

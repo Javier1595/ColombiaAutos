@@ -3,7 +3,6 @@
 namespace ColombiaAutos\administradorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Departamento
@@ -63,48 +62,5 @@ class Departamento
     public function getNombreDepartamento()
     {
         return $this->nombreDepartamento;
-    }
-        /**
-     * @ORM\OneToMany(targetEntity="Ciudad", mappedBy="Departamento")
-     */
-    protected $ciudades;
-
-    public function __construct()
-    {
-        $this->ciudades = new ArrayCollection();
-    }
-
-    /**
-     * Add ciudade
-     *
-     * @param \ColombiaAutos\administradorBundle\Entity\Ciudad $ciudade
-     *
-     * @return Departamento
-     */
-    public function addCiudade(\ColombiaAutos\administradorBundle\Entity\Ciudad $ciudade)
-    {
-        $this->ciudades[] = $ciudade;
-
-        return $this;
-    }
-
-    /**
-     * Remove ciudade
-     *
-     * @param \ColombiaAutos\administradorBundle\Entity\Ciudad $ciudade
-     */
-    public function removeCiudade(\ColombiaAutos\administradorBundle\Entity\Ciudad $ciudade)
-    {
-        $this->ciudades->removeElement($ciudade);
-    }
-
-    /**
-     * Get ciudades
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCiudades()
-    {
-        return $this->ciudades;
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Vehiculo
  *
- * @ORM\Table(name="vehiculo", indexes={@ORM\Index(name="vehiculo_imp", columns={"cod_importacion"}), @ORM\Index(name="vehiculo_modelo", columns={"cod_modelo"}), @ORM\Index(name="vehiculo_carroceria", columns={"cod_carroceria"}), @ORM\Index(name="vehiculo_color", columns={"cod_color"})})
+ * @ORM\Table(name="vehiculo", indexes={@ORM\Index(name="vehiculo_imp", columns={"cod_importacion"}), @ORM\Index(name="vehiculo_modelo", columns={"cod_modelo"}), @ORM\Index(name="vehiculo_carroceria", columns={"cod_carroceria"}), @ORM\Index(name="FK_C9FA1603A87976F8", columns={"cod_color"})})
  * @ORM\Entity
  */
 class Vehiculo
@@ -57,16 +57,6 @@ class Vehiculo
     private $puertas;
 
     /**
-     * @var \Carroceria
-     *
-     * @ORM\ManyToOne(targetEntity="Carroceria")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cod_carroceria", referencedColumnName="cod_carroceria")
-     * })
-     */
-    private $codCarroceria;
-
-    /**
      * @var \Color
      *
      * @ORM\ManyToOne(targetEntity="Color")
@@ -75,6 +65,16 @@ class Vehiculo
      * })
      */
     private $codColor;
+
+    /**
+     * @var \Carroceria
+     *
+     * @ORM\ManyToOne(targetEntity="Carroceria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cod_carroceria", referencedColumnName="cod_carroceria")
+     * })
+     */
+    private $codCarroceria;
 
     /**
      * @var \Importacion
@@ -251,30 +251,6 @@ class Vehiculo
     }
 
     /**
-     * Set codCarroceria
-     *
-     * @param \ColombiaAutos\administradorBundle\Entity\Carroceria $codCarroceria
-     *
-     * @return Vehiculo
-     */
-    public function setCodCarroceria(\ColombiaAutos\administradorBundle\Entity\Carroceria $codCarroceria = null)
-    {
-        $this->codCarroceria = $codCarroceria;
-
-        return $this;
-    }
-
-    /**
-     * Get codCarroceria
-     *
-     * @return \ColombiaAutos\administradorBundle\Entity\Carroceria
-     */
-    public function getCodCarroceria()
-    {
-        return $this->codCarroceria;
-    }
-
-    /**
      * Set codColor
      *
      * @param \ColombiaAutos\administradorBundle\Entity\Color $codColor
@@ -296,6 +272,30 @@ class Vehiculo
     public function getCodColor()
     {
         return $this->codColor;
+    }
+
+    /**
+     * Set codCarroceria
+     *
+     * @param \ColombiaAutos\administradorBundle\Entity\Carroceria $codCarroceria
+     *
+     * @return Vehiculo
+     */
+    public function setCodCarroceria(\ColombiaAutos\administradorBundle\Entity\Carroceria $codCarroceria = null)
+    {
+        $this->codCarroceria = $codCarroceria;
+
+        return $this;
+    }
+
+    /**
+     * Get codCarroceria
+     *
+     * @return \ColombiaAutos\administradorBundle\Entity\Carroceria
+     */
+    public function getCodCarroceria()
+    {
+        return $this->codCarroceria;
     }
 
     /**

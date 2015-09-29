@@ -19,14 +19,26 @@ class ColorController extends Controller
      * Lists all Color entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('ColombiaAutosadministradorBundle:Color')->findAll();
 
+        $em1    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT c FROM ColombiaAutosadministradorBundle:Color c";
+        $query = $em1->createQuery($dql);
+         $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $query,
+                $request->query->getInt('page', 1)/*page number*/,
+                50/*limit per page*/
+            );
+
+
         return $this->render('ColombiaAutosadministradorBundle:Color:index.html.twig', array(
             'entities' => $entities,
+            'pagination' => $pagination
         ));
     }
     /**

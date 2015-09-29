@@ -101,10 +101,10 @@ class MarcaController extends Controller
         $entities = $em1->getRepository('ColombiaAutosadministradorBundle:Linea')->findBycod_marca($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('No se puede encontrar la marca indicada.');
+            //throw $this->createNotFoundException('No se puede encontrar la marca indicada.');
         }
         if (!$entities) {
-            throw $this->createNotFoundException('No se puede encontrar la linea indicada.');
+            //throw $this->createNotFoundException('No se puede encontrar la linea indicada.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
