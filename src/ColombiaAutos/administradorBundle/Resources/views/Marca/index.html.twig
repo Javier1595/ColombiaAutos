@@ -3,34 +3,62 @@
 {% block body -%}
 <div class="container">
     <h1><b>Marcas</b></h1>
-
+    <!--{# total items count #}-->
+    <div class="count">
+        <b>Total colores: </b>{{ pagination.getTotalItemCount }}
+    </div>
     <table class="records_list">
         <thead>
+            <!--
             <tr>
                 <th>Codigo marca</th>
                 <th>Nombre marca</th>
                 <th></th>
             </tr>
+            -->
+            <tr>
+            <!--{# sorting of properties based on query components #}-->
+                <th>Codigo Marca</th>
+                <th>Nombre Marca</th>
+                <th>Lineas</th>
+            </tr>
         </thead>
         <tbody>
-        {% for entity in entities %}
+        {% for entity in pagination %}
+        <!--
             <tr>
-                <td><!--<a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">{{ entity.codMarca }}</a>-->{{ entity.codMarca }}</td>
+                <td><a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">{{ entity.codMarca }}</a>{{ entity.codMarca }}</td>
                 <td>{{ entity.nombreMarca }}</td>
                 <td>
                 <ul>
                     <li>
                         <a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">Ver lineas</a>
                     </li>
-                    <!--<li>
+                    <li>
                         <a href="{{ path('marca_edit', { 'id': entity.codMarca }) }}">edit</a>
-                    </li>-->
+                    </li>
                 </ul>
+                </td>
+            </tr>
+        -->
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ entity.codMarca }}</td>
+                <td>{{ entity.nombreMarca }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('marca_show', { 'id': entity.codMarca }) }}">Ver Lineas</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
     <!--
     <ul>
         <li>

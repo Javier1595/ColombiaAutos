@@ -20,14 +20,26 @@ class DepartamentoController extends Controller
      * Lists all Departamento entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('ColombiaAutosadministradorBundle:Departamento')->findAll();
 
+        $em1    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT d FROM ColombiaAutosadministradorBundle:Departamento d";
+        $query = $em1->createQuery($dql);
+         $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $query,
+                $request->query->getInt('page', 1)/*page number*/,
+                15/*limit per page*/
+            );
+
+
         return $this->render('ColombiaAutosadministradorBundle:Departamento:index.html.twig', array(
             'entities' => $entities,
+            'pagination' => $pagination
         ));
     }
     /**
