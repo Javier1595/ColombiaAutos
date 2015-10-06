@@ -27,4 +27,3 @@ propietario_update:
 propietario_delete:
     path:     /{id}/delete
     defaults: { _controller: "ColombiaAutosadministradorBundle:Propietario:delete" }
-    methods:  [POST, DELETE]

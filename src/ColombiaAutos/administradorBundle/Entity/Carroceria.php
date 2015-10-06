@@ -2,34 +2,34 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Carroceria
- *
- * @ORM\Table(name="carroceria")
- * @ORM\Entity
  */
 class Carroceria
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="cod_carroceria", type="string", length=5, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codCarroceria;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="tipo_carroceria", type="string", length=20, nullable=false)
      */
     private $tipoCarroceria;
 
+    /**
+     * Set codCarroceria
+     *
+     * @param string $codCarroceria
+     *
+     * @return Carroceria
+     */
+    public function setCodCarroceria($codCarroceria)
+    {
+        $this->codCarroceria = $codCarroceria;
 
-
+        return $this;
+    }
     /**
      * Get codCarroceria
      *

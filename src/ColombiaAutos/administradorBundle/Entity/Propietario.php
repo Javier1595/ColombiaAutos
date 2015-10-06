@@ -2,43 +2,28 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Propietario
- *
- * @ORM\Table(name="propietario")
- * @ORM\Entity
  */
 class Propietario
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="nro_identificacion", type="string", length=12, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $nroIdentificacion;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nombres_p", type="string", length=15, nullable=false)
      */
     private $nombresP;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="apellidos_p", type="string", length=20, nullable=false)
      */
     private $apellidosP;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="TarjetaDePropiedad", mappedBy="nroentificacion")
      */
     private $nroLicencia;
 
@@ -50,7 +35,6 @@ class Propietario
         $this->nroLicencia = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     /**
      * Get nroIdentificacion
      *
@@ -59,6 +43,20 @@ class Propietario
     public function getNroIdentificacion()
     {
         return $this->nroIdentificacion;
+    }
+
+    /**
+     * Set nroIdentificacion
+     *
+     * @param string $nroIdentificacion
+     *
+     * @return Propietario
+     */
+    public function setNroIdentificacion($NroIdentificacion)
+    {
+        $this->nroIdentificacion = $NroIdentificacion;
+
+        return $this;
     }
 
     /**

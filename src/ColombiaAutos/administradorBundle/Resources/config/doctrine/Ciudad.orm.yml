@@ -1,5 +1,4 @@
-ColombiaAutosadministradorBundle\Entity\Ciudad:
-Ciudad:
+ColombiaAutos\administradorBundle\Entity\Ciudad:
     type: entity
     table: ciudad
     indexes:
@@ -23,12 +22,15 @@ Ciudad:
             options:
                 fixed: false
             column: nombre_ciudad
-    manyToOne:
-        departamento:
+    oneToOne:
+        codDepartamento:
             targetEntity: Departamento
-            inversedBy: ciudades
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
             joinColumns:
-                name: cod_departamento
-                referencedColumnName: cod_departamento
+                cod_departamento:
+                    referencedColumnName: cod_departamento
             orphanRemoval: false
     lifecycleCallbacks: {  }

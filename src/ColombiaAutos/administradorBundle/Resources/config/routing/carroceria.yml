@@ -1,0 +1,30 @@
+carroceria:
+    path:     /
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:index" }
+
+carroceria_show:
+    path:     /{id}/show
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:show" }
+
+carroceria_new:
+    path:     /new
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:new" }
+
+carroceria_create:
+    path:     /create
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:create" }
+    methods:  POST
+
+carroceria_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:edit" }
+
+carroceria_update:
+    path:     /{id}/update
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:update" }
+    methods:  [POST, PUT]
+
+carroceria_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:delete" }
+    methods:  [POST, DELETE]

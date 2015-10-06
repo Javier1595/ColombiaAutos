@@ -1,23 +1,23 @@
-Color:
+ColombiaAutos\administradorBundle\Entity\Carroceria:
     type: entity
-    table: color
+    table: carroceria
     id:
-        codColor:
+        codCarroceria:
             type: string
             nullable: false
-            length: 3
+            length: 5
             options:
                 fixed: false
             id: true
-            column: cod_color
+            column: cod_carroceria
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
-        nomColor:
+        tipoCarroceria:
             type: string
             nullable: false
             length: 20
             options:
                 fixed: false
-            column: nom_color
+            column: tipo_carroceria
     lifecycleCallbacks: {  }

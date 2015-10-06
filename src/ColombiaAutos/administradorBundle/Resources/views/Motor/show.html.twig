@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Motor</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Nromotor</th>
+                <td>{{ entity.nroMotor }}</td>
+            </tr>
+            <tr>
+                <th>Cilindraje</th>
+                <td>{{ entity.cilindraje }}</td>
+            </tr>
+            <tr>
+                <th>Combustible</th>
+                <td>{{ entity.combustible }}</td>
+            </tr>
+            <tr>
+                <th>Potencia</th>
+                <td>{{ entity.potencia }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('motor') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('motor_edit', { 'id': entity.nroMotor }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

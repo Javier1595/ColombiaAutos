@@ -1,41 +1,42 @@
-Propietario:
+ColombiaAutos\administradorBundle\Entity\Motor:
     type: entity
-    table: propietario
+    table: motor
     id:
-        nroIdentificacion:
-            NotBlank: ~
+        nroMotor:
             type: string
             nullable: false
-            length: 12
+            length: 10
             options:
                 fixed: false
             id: true
-            column: nro_identificacion
+            column: nro_motor
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
-        nombresP:
-            NotBlank: ~
+        cilindraje:
             type: string
             nullable: false
-            length: 15
+            length: 6
             options:
                 fixed: false
-            column: nombres_p
-        apellidosP:
-            NotBlank: ~
+        combustible:
             type: string
             nullable: false
-            length: 20
+            length: 10
             options:
                 fixed: false
-            column: apellidos_p
+        potencia:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
     manyToMany:
-        nroLicencia:
-            targetEntity: TarjetaDePropiedad
+        placa:
+            targetEntity: Vehiculo
             cascade: {  }
             fetch: LAZY
-            mappedBy: nroentificacion
+            mappedBy: nroMotor
             inversedBy: null
             joinTable: null
             orderBy: null

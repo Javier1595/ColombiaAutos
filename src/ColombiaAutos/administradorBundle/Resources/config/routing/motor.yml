@@ -1,0 +1,29 @@
+motor:
+    path:     /
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:index" }
+
+motor_show:
+    path:     /{id}/show
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:show" }
+
+motor_new:
+    path:     /new
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:new" }
+
+motor_create:
+    path:     /create
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:create" }
+    methods:  POST
+
+motor_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:edit" }
+
+motor_update:
+    path:     /{id}/update
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:update" }
+    methods:  [POST, PUT]
+
+motor_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Motor:delete" }

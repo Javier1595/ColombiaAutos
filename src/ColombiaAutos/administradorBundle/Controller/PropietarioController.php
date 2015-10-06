@@ -43,10 +43,9 @@ class PropietarioController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add('mensaje','Se ha ingresado el propietario exitosamente');
             return $this->redirect($this->generateUrl('propietario'));
         }
-
         return $this->render('ColombiaAutosadministradorBundle:Propietario:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
@@ -171,8 +170,8 @@ class PropietarioController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
-            return $this->redirect($this->generateUrl('propietario_edit', array('id' => $id)));
+            $this->get('session')->getFlashBag()->add('mensaje','Se ha editado el propietario exitosamente');
+            return $this->redirect($this->generateUrl('propietario'));
         }
 
         return $this->render('ColombiaAutosadministradorBundle:Propietario:edit.html.twig', array(
@@ -185,12 +184,8 @@ class PropietarioController extends Controller
      * Deletes a Propietario entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('ColombiaAutosadministradorBundle:Propietario')->find($id);
 
@@ -200,25 +195,7 @@ class PropietarioController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('propietario'));
-    }
-
-    /**
-     * Creates a form to delete a Propietario entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('propietario_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            $this->get('session')->getFlashBag()->add('mensaje','Se ha eliminado el propietario exitosamente');
+            return $this->redirect($this->generateUrl('propietario'));
     }
 }

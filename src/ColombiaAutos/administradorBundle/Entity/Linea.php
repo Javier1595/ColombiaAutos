@@ -2,53 +2,30 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Linea
- *
- * @ORM\Table(name="linea", indexes={@ORM\Index(name="marca_linea", columns={"cod_marca"})})
- * @ORM\Entity
  */
 class Linea
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="cod_modelo", type="string", length=3, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $codModelo;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="anio_modelo", type="string", length=4, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $anioModelo;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nombre_modelo", type="string", length=50, nullable=false)
      */
     private $nombreModelo;
 
     /**
-     * @var \Marca
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Marca")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cod_marca", referencedColumnName="cod_marca")
-     * })
+     * @var \ColombiaAutos\administradorBundle\Entity\Marca
      */
     private $codMarca;
-
 
 
     /**
@@ -130,7 +107,7 @@ class Linea
      *
      * @return Linea
      */
-    public function setCodMarca(\ColombiaAutos\administradorBundle\Entity\Marca $codMarca)
+    public function setCodMarca(\ColombiaAutos\administradorBundle\Entity\Marca $codMarca = null)
     {
         $this->codMarca = $codMarca;
 

@@ -2,32 +2,20 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Importacion
- *
- * @ORM\Table(name="importacion")
- * @ORM\Entity
  */
 class Importacion
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="cod_importacion", type="string", length=16, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $codImportacion;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_importacion", type="date", nullable=true)
      */
     private $fechaImportacion;
-
 
 
     /**

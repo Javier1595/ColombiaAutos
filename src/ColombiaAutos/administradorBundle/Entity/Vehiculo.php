@@ -2,112 +2,63 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Vehiculo
- *
- * @ORM\Table(name="vehiculo", indexes={@ORM\Index(name="vehiculo_imp", columns={"cod_importacion"}), @ORM\Index(name="vehiculo_modelo", columns={"cod_modelo"}), @ORM\Index(name="vehiculo_carroceria", columns={"cod_carroceria"}), @ORM\Index(name="FK_C9FA1603A87976F8", columns={"cod_color"})})
- * @ORM\Entity
  */
 class Vehiculo
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="placa", type="string", length=7, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $placa;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nro_chasis", type="string", length=17, nullable=false)
      */
     private $nroChasis;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nro_serie", type="string", length=17, nullable=false)
      */
     private $nroSerie;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="capacidad_personas", type="string", length=3, nullable=false)
      */
     private $capacidadPersonas;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="servicio", type="string", length=10, nullable=false)
      */
     private $servicio;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="puertas", type="string", length=3, nullable=false)
      */
     private $puertas;
 
     /**
-     * @var \Color
-     *
-     * @ORM\ManyToOne(targetEntity="Color")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cod_color", referencedColumnName="cod_color")
-     * })
+     * @var \ColombiaAutos\administradorBundle\Entity\Color
      */
     private $codColor;
 
     /**
-     * @var \Carroceria
-     *
-     * @ORM\ManyToOne(targetEntity="Carroceria")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cod_carroceria", referencedColumnName="cod_carroceria")
-     * })
+     * @var \ColombiaAutos\administradorBundle\Entity\Carroceria
      */
     private $codCarroceria;
 
     /**
-     * @var \Importacion
-     *
-     * @ORM\ManyToOne(targetEntity="Importacion")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cod_importacion", referencedColumnName="cod_importacion")
-     * })
+     * @var \ColombiaAutos\administradorBundle\Entity\Importacion
      */
     private $codImportacion;
 
     /**
-     * @var \Linea
-     *
-     * @ORM\ManyToOne(targetEntity="Linea")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="cod_modelo", referencedColumnName="cod_modelo")
-     * })
+     * @var \ColombiaAutos\administradorBundle\Entity\Linea
      */
     private $codModelo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Motor", inversedBy="placa")
-     * @ORM\JoinTable(name="motor_vehiculo",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="placa", referencedColumnName="placa")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="nro_motor", referencedColumnName="nro_motor")
-     *   }
-     * )
      */
     private $nroMotor;
 
@@ -118,7 +69,6 @@ class Vehiculo
     {
         $this->nroMotor = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Get placa

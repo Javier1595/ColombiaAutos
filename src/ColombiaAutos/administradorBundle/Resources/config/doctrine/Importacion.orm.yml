@@ -1,4 +1,4 @@
-Importacion:
+ColombiaAutos\administradorBundle\Entity\Importacion:
     type: entity
     table: importacion
     id:

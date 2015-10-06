@@ -1,4 +1,4 @@
-TarjetaDePropiedad:
+ColombiaAutos\administradorBundle\Entity\TarjetaDePropiedad:
     type: entity
     table: tarjeta_de_propiedad
     indexes:

@@ -1,5 +1,4 @@
-ColombiaAutosadministradorBundle\Entity\Marca:
-Marca:
+ColombiaAutos\administradorBundle\Entity\Marca:
     type: entity
     table: marca
     id:
@@ -21,8 +20,4 @@ Marca:
             options:
                 fixed: false
             column: nombre_marca
-    oneToMany:
-        lineas:
-            targetEntity: Linea
-            mappedBy: Marca
     lifecycleCallbacks: {  }

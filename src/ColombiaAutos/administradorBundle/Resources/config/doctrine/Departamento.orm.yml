@@ -1,5 +1,4 @@
-ColombiaAutosadministradorBundle\Entity\Departamento:
-Departamento:
+ColombiaAutos\administradorBundle\Entity\Departamento:
     type: entity
     table: departamento
     id:
@@ -21,8 +20,4 @@ Departamento:
             options:
                 fixed: false
             column: nombre_departamento
-    oneToMany:
-        ciudades:
-            targetEntity: Ciudad
-            mappedBy: Departamento
-lifecycleCallbacks: {  }
+    lifecycleCallbacks: {  }

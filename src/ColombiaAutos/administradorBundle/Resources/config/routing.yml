@@ -1,3 +1,11 @@
+colombia_autosadministrador_carroceria:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/carroceria.yml"
+    prefix:   /carroceria
+
+colombia_autosadministrador_motor:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/motor.yml"
+    prefix:   /motor
+
 colombia_autosadministrador_color:
     resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/color.yml"
     prefix:   /color

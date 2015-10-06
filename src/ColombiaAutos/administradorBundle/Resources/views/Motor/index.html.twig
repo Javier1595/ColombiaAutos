@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <h1>Lista de motores</h1>
+    <div class="container">
+        {% for flashMessage in app.session.flashbag.get('mensaje') %}
+
+        <span  class="card-panel teal lighten-2">{{ flashMessage }}</span>
+
+        {% endfor %}
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('motor_new') }}">
+                Ingresar nuevo motor
+            </a>
+        </li>
+    </ul>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Nro de motor</th>
+                <th>Cilindraje</th>
+                <th>Tipo de combustible</th>
+                <th>Potencia</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><!--<a href="{{ path('motor_show', { 'id': entity.nroMotor }) }}"></a>-->{{ entity.nroMotor }}</td>
+                <td>{{ entity.cilindraje }}</td>
+                <td>{{ entity.combustible }}</td>
+                <td>{{ entity.potencia }}</td>
+                <td>
+                <ul>
+                    <!--
+                    <li>
+                        <a href="{{ path('motor_show', { 'id': entity.nroMotor }) }}">show</a>
+                    </li>
+                    -->
+                    <li>
+                        <a href="{{ path('motor_edit', { 'id': entity.nroMotor }) }}">Editar motor</a>-<a href="{{ path('motor_delete', { 'id': entity.nroMotor }) }}">Eliminar motor</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

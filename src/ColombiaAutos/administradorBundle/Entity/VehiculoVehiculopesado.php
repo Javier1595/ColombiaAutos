@@ -2,42 +2,25 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * VehiculoVehiculopesado
- *
- * @ORM\Table(name="vehiculo_vehiculopesado")
- * @ORM\Entity
  */
 class VehiculoVehiculopesado
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="capacidad", type="string", length=6, nullable=false)
      */
     private $capacidad;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nro_ejes", type="string", length=3, nullable=false)
      */
     private $nroEjes;
 
     /**
-     * @var \Vehiculo
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Vehiculo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="placa", referencedColumnName="placa")
-     * })
+     * @var \ColombiaAutos\administradorBundle\Entity\Vehiculo
      */
     private $placa;
-
 
 
     /**
@@ -95,7 +78,7 @@ class VehiculoVehiculopesado
      *
      * @return VehiculoVehiculopesado
      */
-    public function setPlaca(\ColombiaAutos\administradorBundle\Entity\Vehiculo $placa)
+    public function setPlaca(\ColombiaAutos\administradorBundle\Entity\Vehiculo $placa = null)
     {
         $this->placa = $placa;
 

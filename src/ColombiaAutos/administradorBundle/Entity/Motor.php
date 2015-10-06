@@ -2,50 +2,33 @@
 
 namespace ColombiaAutos\administradorBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Motor
- *
- * @ORM\Table(name="motor")
- * @ORM\Entity
  */
 class Motor
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="nro_motor", type="string", length=3, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $nroMotor;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="cilindraje", type="string", length=5, nullable=false)
      */
     private $cilindraje;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="combustible", type="string", length=6, nullable=false)
      */
     private $combustible;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="potencia", type="string", length=3, nullable=false)
      */
     private $potencia;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Vehiculo", mappedBy="nroMotor")
      */
     private $placa;
 
@@ -56,8 +39,6 @@ class Motor
     {
         $this->placa = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-
     /**
      * Get nroMotor
      *
@@ -67,7 +48,19 @@ class Motor
     {
         return $this->nroMotor;
     }
+    /**
+     * Set nroMotor
+     *
+     * @param string $nroMotor
+     *
+     * @return Motor
+     */
+    public function setNroMotor($NroMotor)
+    {
+        $this->nroMotor = $NroMotor;
 
+        return $this;
+    }
     /**
      * Set cilindraje
      *

@@ -1,4 +1,4 @@
-VehiculoVehiculopesado:
+ColombiaAutos\administradorBundle\Entity\VehiculoVehiculopesado:
     type: entity
     table: vehiculo_vehiculopesado
     id: {  }

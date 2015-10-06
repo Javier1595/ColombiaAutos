@@ -1,14 +1,15 @@
-VehiculoAutomovil:
+ColombiaAutos\administradorBundle\Entity\VehiculoMoto:
     type: entity
-    table: vehiculo_automovil
+    table: vehiculo_moto
     id: {  }
     fields:
-        blindaje:
+        nroRuedas:
             type: string
             nullable: false
             length: 2
             options:
                 fixed: false
+            column: nro_ruedas
     oneToOne:
         placa:
             targetEntity: Vehiculo

@@ -3,6 +3,13 @@
 {% block body -%}
 <div class="container">
     <h1><b>Propietarios</b></h1>
+    <div class="container">
+        {% for flashMessage in app.session.flashbag.get('mensaje') %}
+
+        <span  class="card-panel teal lighten-2">{{ flashMessage }}</span>
+
+        {% endfor %}
+    </div>
     <ul>
         <li>
             <a href="{{ path('propietario_new') }}">
@@ -28,7 +35,7 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('propietario_edit', { 'id': entity.nroIdentificacion }) }}">Editar propietario</a>
+                        <a href="{{ path('propietario_edit', { 'id': entity.nroIdentificacion }) }}">Editar propietario</a>-<a href="{{ path('propietario_delete', { 'id': entity.nroIdentificacion }) }}">Eliminar propietario</a>
                     </li>
                 </ul>
                 </td>

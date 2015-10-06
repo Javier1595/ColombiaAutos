@@ -1,4 +1,4 @@
-Vehiculo:
+ColombiaAutos\administradorBundle\Entity\Vehiculo:
     type: entity
     table: vehiculo
     indexes:
@@ -11,7 +11,7 @@ Vehiculo:
         vehiculo_carroceria:
             columns:
                 - cod_carroceria
-        vehiculo_color:
+        FK_C9FA1603A87976F8:
             columns:
                 - cod_color
     id:
@@ -59,16 +59,6 @@ Vehiculo:
             options:
                 fixed: false
     manyToOne:
-        codCarroceria:
-            targetEntity: Carroceria
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                cod_carroceria:
-                    referencedColumnName: cod_carroceria
-            orphanRemoval: false
         codColor:
             targetEntity: Color
             cascade: {  }
@@ -78,6 +68,16 @@ Vehiculo:
             joinColumns:
                 cod_color:
                     referencedColumnName: cod_color
+            orphanRemoval: false
+        codCarroceria:
+            targetEntity: Carroceria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                cod_carroceria:
+                    referencedColumnName: cod_carroceria
             orphanRemoval: false
         codImportacion:
             targetEntity: Importacion

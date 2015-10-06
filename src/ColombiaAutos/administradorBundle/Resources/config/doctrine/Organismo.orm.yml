@@ -1,4 +1,4 @@
-Organismo:
+ColombiaAutos\administradorBundle\Entity\Organismo:
     type: entity
     table: organismo
     indexes:

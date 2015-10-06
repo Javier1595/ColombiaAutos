@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PropietarioType extends AbstractType
+class MotorType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,10 @@ class PropietarioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nroIdentificacion', 'text', array('label' => 'Nro de Documento'))
-            ->add('nombresP', 'text', array('label' => 'Nombres del Propietario'))
-            ->add('apellidosP', 'text', array('label' => 'Apellidos del Propietario'))
+            ->add('nroMotor', 'text', array('label' => 'Nro de Motor'))
+            ->add('cilindraje')
+            ->add('combustible')
+            ->add('potencia')
         ;
     }
     
@@ -27,7 +28,7 @@ class PropietarioType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ColombiaAutos\administradorBundle\Entity\Propietario'
+            'data_class' => 'ColombiaAutos\administradorBundle\Entity\Motor'
         ));
     }
 
@@ -36,6 +37,6 @@ class PropietarioType extends AbstractType
      */
     public function getName()
     {
-        return 'colombiaautos_administradorbundle_propietario';
+        return 'colombiaautos_administradorbundle_motor';
     }
 }

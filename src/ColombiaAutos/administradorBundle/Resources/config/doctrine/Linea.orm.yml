@@ -1,5 +1,4 @@
-ColombiaAutosadministradorBundle\Entity\Linea:
-Linea:
+ColombiaAutos\administradorBundle\Entity\Linea:
     type: entity
     table: linea
     indexes:
@@ -31,12 +30,15 @@ Linea:
             options:
                 fixed: false
             column: nombre_modelo
-    manyToOne:
-        marca:
+    oneToOne:
+        codMarca:
             targetEntity: Marca
-            inversedBy: lineas
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
             joinColumns:
-                name: cod_marca
-                referencedColumnName: cod_marca
+                cod_marca:
+                    referencedColumnName: cod_marca
             orphanRemoval: false
     lifecycleCallbacks: {  }
