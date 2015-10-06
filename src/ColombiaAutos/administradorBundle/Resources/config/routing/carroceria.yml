@@ -27,4 +27,3 @@ carroceria_update:
 carroceria_delete:
     path:     /{id}/delete
     defaults: { _controller: "ColombiaAutosadministradorBundle:Carroceria:delete" }
-    methods:  [POST, DELETE]

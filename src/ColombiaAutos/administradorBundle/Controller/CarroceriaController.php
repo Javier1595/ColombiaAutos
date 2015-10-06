@@ -101,11 +101,8 @@ class CarroceriaController extends Controller
             throw $this->createNotFoundException('Unable to find Carroceria entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('ColombiaAutosadministradorBundle:Carroceria:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -124,12 +121,10 @@ class CarroceriaController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ColombiaAutosadministradorBundle:Carroceria:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -143,7 +138,7 @@ class CarroceriaController extends Controller
     private function createEditForm(Carroceria $entity)
     {
         $form = $this->createForm(new CarroceriaType(), $entity, array(
-            'action' => $this->generateUrl('carroceria_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('carroceria_update', array('id' => $entity->getCodCarroceria())),
             'method' => 'PUT',
         ));
 
@@ -164,61 +159,36 @@ class CarroceriaController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Carroceria entity.');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->flush();
-
-            return $this->redirect($this->generateUrl('carroceria_edit', array('id' => $id)));
+            $this->get('session')->getFlashBag()->add('mensaje','Se ha actualizado la carroceria exitosamente');
+            return $this->redirect($this->generateUrl('carroceria'));
         }
 
         return $this->render('ColombiaAutosadministradorBundle:Carroceria:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
      * Deletes a Carroceria entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ColombiaAutosadministradorBundle:Carroceria')->find($id);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('ColombiaAutosadministradorBundle:Carroceria')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Carroceria entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Carroceria entity.');
         }
 
+        $em->remove($entity);
+        $em->flush();
+        $this->get('session')->getFlashBag()->add('mensaje','Se ha eliminado la carroceria exitosamente');
         return $this->redirect($this->generateUrl('carroceria'));
-    }
-
-    /**
-     * Creates a form to delete a Carroceria entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('carroceria_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
     }
 }

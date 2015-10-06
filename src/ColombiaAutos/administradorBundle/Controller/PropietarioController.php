@@ -123,12 +123,10 @@ class PropietarioController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ColombiaAutosadministradorBundle:Propietario:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -163,8 +161,6 @@ class PropietarioController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Propietario entity.');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
