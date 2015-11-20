@@ -2,7 +2,15 @@
 
 {% block body -%}
 <div class="container">
+   <div class="container">
     <h1><b>Organismos</b></h1>
+    <div class="container">
+        {% for flashMessage in app.session.flashbag.get('mensaje') %}
+
+        <span  class="card-panel teal lighten-2">{{ flashMessage }}</span>
+
+        {% endfor %}
+    </div>
     <table class="records_list">
         <thead>
             <tr>
@@ -18,29 +26,21 @@
                 <td>{{ entity.nombreOrganismo }}</td>
                 <td>{{ entity.telefonoOrganismo }}</td>
                 <td>
-                    <!--
                 <ul>
                     <li>
-                        <a href="{{ path('organismo_show', { 'id': entity.codOrganismo }) }}">show</a>
+                        <a href="{{ path('organismo_show', { 'id': entity.codOrganismo }) }}">Ciudad</a>
                     </li>
+                    <!--
                     <li>
                         <a href="{{ path('organismo_edit', { 'id': entity.codOrganismo }) }}">edit</a>
                     </li>
+                -->
                 </ul>
-            -->
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-<!--
-        <ul>
-        <li>
-            <a href="{{ path('organismo_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
--->
+    </table>    
+</div>
 </div>
 {% endblock %}

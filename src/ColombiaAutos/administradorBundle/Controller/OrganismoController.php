@@ -149,7 +149,7 @@ class OrganismoController extends Controller
     private function createEditForm(Organismo $entity)
     {
         $form = $this->createForm(new OrganismoType(), $entity, array(
-            'action' => $this->generateUrl('organismo_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('organismo_update', array('id' => $entity->getcodOrganismo())),
             'method' => 'PUT',
         ));
 
