@@ -11,7 +11,7 @@ ColombiaAutos\administradorBundle\Entity\Departamento:
             id: true
             column: cod_departamento
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         nombreDepartamento:
             type: string
@@ -21,3 +21,8 @@ ColombiaAutos\administradorBundle\Entity\Departamento:
                 fixed: false
             column: nombre_departamento
     lifecycleCallbacks: {  }
+    properties:
+        codDepartamento:
+            - NotBlank: ~
+        nombreDepartamento:
+            - NotBlank: ~

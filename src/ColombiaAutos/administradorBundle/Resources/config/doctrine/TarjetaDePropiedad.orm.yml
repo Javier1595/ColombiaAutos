@@ -18,7 +18,7 @@ ColombiaAutos\administradorBundle\Entity\TarjetaDePropiedad:
             id: true
             column: nro_licencia
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         fechaExpedicion:
             type: date

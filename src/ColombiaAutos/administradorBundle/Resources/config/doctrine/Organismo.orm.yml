@@ -15,7 +15,7 @@ ColombiaAutos\administradorBundle\Entity\Organismo:
             id: true
             column: cod_organismo
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         nombreOrganismo:
             type: string

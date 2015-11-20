@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new ColombiaAutos\administradorBundle\ColombiaAutosadministradorBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new ColombiaAutos\SecurityBundle\ColombiaAutosSecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,3 +1,7 @@
+colombia_autosadministrador_organismo:
+    resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/organismo.yml"
+    prefix:   /organismo
+
 colombia_autosadministrador_carroceria:
     resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/carroceria.yml"
     prefix:   /carroceria
@@ -21,7 +25,3 @@ colombia_autosadministrador_propietario:
 colombia_autosadministrador_departamento:
     resource: "@ColombiaAutosadministradorBundle/Resources/config/routing/departamento.yml"
     prefix:   /departamento
-
-colombia_autosadministrador_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ColombiaAutosadministradorBundle:Default:index }

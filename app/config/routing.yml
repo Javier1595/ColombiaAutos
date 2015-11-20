@@ -1,3 +1,7 @@
+colombia_autos_security:
+    resource: "@ColombiaAutosSecurityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 colombia_autosadministrador:
     resource: "@ColombiaAutosadministradorBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,3 +9,10 @@ colombia_autosadministrador:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+login:
+    pattern:   login_path
+    defaults:  { _controller: ColombiaAutosSecurityBundle:Security:login }
+login_check:
+    pattern:   check_path
+logout:
+    path:   /logout

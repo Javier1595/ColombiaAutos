@@ -14,6 +14,8 @@ ColombiaAutos\administradorBundle\Entity\Ciudad:
                 fixed: false
             id: true
             column: cod_ciudad
+            generator:
+                strategy: NONE
     fields:
         nombreCiudad:
             type: string
@@ -34,3 +36,10 @@ ColombiaAutos\administradorBundle\Entity\Ciudad:
                     referencedColumnName: cod_departamento
             orphanRemoval: false
     lifecycleCallbacks: {  }
+    properties:
+        codCiudad:
+            - NotBlank: ~
+        nombreCiudad:
+            - NotBlank: ~
+        codDepartamento:
+            - NotBlank: ~

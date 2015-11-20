@@ -23,7 +23,7 @@ ColombiaAutos\administradorBundle\Entity\Vehiculo:
                 fixed: false
             id: true
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         nroChasis:
             type: string

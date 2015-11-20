@@ -21,3 +21,8 @@ ColombiaAutos\administradorBundle\Entity\Carroceria:
                 fixed: false
             column: tipo_carroceria
     lifecycleCallbacks: {  }
+    properties:
+        codCarroceria:
+            - NotBlank: ~
+        tipoCarroceria:
+            - NotBlank: ~

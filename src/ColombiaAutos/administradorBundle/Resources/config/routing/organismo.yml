@@ -1,0 +1,30 @@
+organismo:
+    path:     /ConsultarOrganismo
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:index" }
+
+organismo_show:
+    path:     /{id}/show
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:show" }
+
+organismo_new:
+    path:     /new
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:new" }
+
+organismo_create:
+    path:     /create
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:create" }
+    methods:  POST
+
+organismo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:edit" }
+
+organismo_update:
+    path:     /{id}/update
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:update" }
+    methods:  [POST, PUT]
+
+organismo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ColombiaAutosadministradorBundle:Organismo:delete" }
+    methods:  [POST, DELETE]

@@ -41,3 +41,12 @@ ColombiaAutos\administradorBundle\Entity\Motor:
             joinTable: null
             orderBy: null
     lifecycleCallbacks: {  }
+    properties:
+        nroMotor:
+            - NotBlank: ~
+        cilindraje:
+            - NotBlank: ~
+        combustible:
+            - NotBlank: ~
+        potencia:
+            - NotBlank: ~

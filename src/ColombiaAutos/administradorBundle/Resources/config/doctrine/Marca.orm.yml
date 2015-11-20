@@ -11,7 +11,7 @@ ColombiaAutos\administradorBundle\Entity\Marca:
             id: true
             column: cod_marca
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         nombreMarca:
             type: string

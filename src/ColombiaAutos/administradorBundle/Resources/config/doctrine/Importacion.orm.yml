@@ -11,10 +11,15 @@ ColombiaAutos\administradorBundle\Entity\Importacion:
             id: true
             column: cod_importacion
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         fechaImportacion:
             type: date
             nullable: true
             column: fecha_importacion
     lifecycleCallbacks: {  }
+    properties:
+        codImportacion:
+            - NotBlank: ~
+        fechaImportacion:
+            - NotBlank: ~

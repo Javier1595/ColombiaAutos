@@ -11,7 +11,7 @@ ColombiaAutos\administradorBundle\Entity\Color:
             id: true
             column: cod_color
             generator:
-                strategy: IDENTITY
+                strategy: NONE
     fields:
         nomColor:
             type: string
@@ -21,3 +21,8 @@ ColombiaAutos\administradorBundle\Entity\Color:
                 fixed: false
             column: nom_color
     lifecycleCallbacks: {  }
+    properties:
+        codColor:
+            - NotBlank: ~
+        nomColor:
+            - NotBlank: ~

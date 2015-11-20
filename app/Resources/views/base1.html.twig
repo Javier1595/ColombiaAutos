@@ -19,23 +19,14 @@
         {% block header %}
         <header>
         {% block nav %}
-            <nav>
-              <div class="nav-wrapper">
-                <a href="{{ asset('/logout') }}" class="brand-logo right">
-                      Salir
-                </a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                  <li><a  class="active" href="{{ asset('/') }}">Inicio</a></li>
-                  <li><a href="{{ asset('organismo/ConsultarOrganismo') }}">Organismos</a></li>
-                  <li><a href="{{ asset('propietario/ConsultarPropietario') }}">Propietario</a></li>
-                  <li><a href="{{ asset('color/') }}">Colores</a></li>
-                  <li><a href="{{ asset('marca/ConsultarMarca') }}">Marcas</a></li>
-                  <li><a href="{{ asset('departamento/ConsultarDepartamentos') }}">Departamentos</a></li>
-                  <li><a href="{{ asset('motor/') }}">Motores</a></li>
-                  <li><a href="{{ asset('carroceria/') }}">Carroceria</a></li>
-                </ul>
-              </div>
-            </nav>
+          <nav>
+            <div class="nav-wrapper">
+              <a href="{{ asset('/login_path') }}" class="brand-logo right">
+                    Ingresar
+              </a>
+                <a  class="brand-logo left" href="{{ asset('/') }}"><b>Home</b></a>
+            </div>
+          </nav>
         {% endblock %}
         </header>
         {% endblock %}

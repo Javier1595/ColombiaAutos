@@ -1,3 +1,4 @@
+{% if is_granted('ROLE_ADMIN') %}
 {% extends '::base.html.twig' %}
 
 {% block body -%}
@@ -29,3 +30,4 @@
     </li>
 </ul>
 {% endblock %}
+{% endif %}

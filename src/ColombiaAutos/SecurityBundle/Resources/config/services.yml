@@ -1,0 +1,4 @@
+services:
+#    colombia_autos_security.example:
+#        class: ColombiaAutos\SecurityBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
